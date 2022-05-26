@@ -10,23 +10,24 @@
     <Grid>
         <StackPanel>
             <StackPanel Margin="0,20,0,0">
-                <customControl:PropertyControl NameProperty="ID" TextProperty="{Binding Patient.ID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
-                <customControl:PropertyControl NameProperty="Name" TextProperty="{Binding Patient.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
-                <customControl:PropertyControl NameProperty="Surname" TextProperty="{Binding Patient.Surname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
-                <customControl:PropertyControl NameProperty="Phone" TextProperty="{Binding Patient.Phone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
-                <customControl:PropertyControl NameProperty="Address" TextProperty="{Binding Patient.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
-                <customControl:PropertyControl NameProperty="Mail" TextProperty="{Binding Patient.Mail, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
-                <customControl:PropertyControl NameProperty="Birthday" TextProperty="{Binding Patient.Birthday, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
-                <customControl:PropertyControl NameProperty="Gender" TextProperty="{Binding Patient.Gender, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                <customControl:PropertyControl NameProperty="ID" ValueProperty="{Binding Patient.ID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                <customControl:PropertyControl NameProperty="Name" ValueProperty="{Binding Patient.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                <customControl:PropertyControl NameProperty="Surname" ValueProperty="{Binding Patient.Surname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                <customControl:PropertyControl NameProperty="Phone" ValueProperty="{Binding Patient.Phone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                <customControl:PropertyControl NameProperty="Address" ValueProperty="{Binding Patient.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                <customControl:PropertyControl NameProperty="Mail" ValueProperty="{Binding Patient.Mail, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                <customControl:PropertyDateControl NameProperty="Birthday" ValueProperty="{Binding Patient.Birthday, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                <customControl:PropertyGenderControl NameProperty="Gender" ValueProperty="{Binding Patient.Gender, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
             </StackPanel>
 
             <Button x:Name="nextButton" 
-                    Content="Next"
+                    Content="  Next"
                     Margin="25"
                     BorderBrush="Transparent"
                     Width="150"
                     Height="35"
-                    Foreground="White">
+                    Foreground="White"
+                    Command="{Binding NextCommand}">
                 <Button.Effect>
                     <DropShadowEffect ShadowDepth="3" Direction="-45" Color="Black" Opacity="0.43" BlurRadius="12.0" />
                 </Button.Effect>
@@ -51,12 +52,6 @@
 
                         <ControlTemplate.Triggers>
                             <Trigger Property="Button.IsMouseOver" Value="True">
-                                <Setter TargetName="border" Property="Background" Value="#16c2d9" />
-                                <Setter TargetName="border" Property="Cursor" Value="Hand" />
-                            </Trigger>
-                            <Trigger Property="Button.IsPressed" Value="True">
-                                <Setter Property="Width" Value="147" />
-                                <Setter Property="Height" Value="34" />
                                 <Setter TargetName="border" Property="Background" Value="#16c2d9" />
                                 <Setter TargetName="border" Property="Cursor" Value="Hand" />
                             </Trigger>

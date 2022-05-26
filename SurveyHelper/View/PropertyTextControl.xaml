@@ -35,7 +35,7 @@
                            Text="{Binding NameProperty, ElementName=propertyWindow}" 
                            FontSize="14" 
                            FontWeight="Bold"/>
-                <dxe:TextEdit Text="{Binding TextProperty, ElementName=propertyWindow}" />
+                <dxe:TextEdit EditValue="{Binding TextProperty, ElementName=propertyWindow}" />
             </StackPanel>
         </Border>
     </Grid>

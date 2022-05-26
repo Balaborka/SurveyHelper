@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 
 namespace SurveyHelper.Model {
     public class Patient : INotifyPropertyChanged {
-        int id;
-        public int ID { 
+        string id;
+        public string ID { 
             get => id;
             set {
                 id = value; 
@@ -74,9 +74,17 @@ namespace SurveyHelper.Model {
                 NotifyPropertyChanged();
             }
         }
+        bool isRequiredFieldsSubmitted;
+        public bool IsRequiredFieldsSubmitted {
+            get => isRequiredFieldsSubmitted;
+            set {
+                isRequiredFieldsSubmitted = value;
+                NotifyPropertyChanged();
+            }
+        }
         public ObservableCollection<Disease> ListOfDiseases { get; set; }
 
-        public Patient(int id) {
+        public Patient(string id) {
             this.ID = id;
             ListOfDiseases = new ObservableCollection<Disease>();
             ListOfDiseases.Add(new Disease() { Name = "Break", HasDisease = null });

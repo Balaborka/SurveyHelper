@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SurveyHelper.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,28 +16,26 @@ using System.Windows.Shapes;
 
 namespace SurveyHelper.View {
     /// <summary>
-    /// Interaction logic for PropertyControl.xaml
+    /// Interaction logic for PropertyGenderControl.xaml
     /// </summary>
-    public partial class PropertyControl : UserControl {
-        public PropertyControl() {
+    public partial class PropertyGenderControl : UserControl {
+        public PropertyGenderControl() {
             InitializeComponent();
         }
-
-
         public string NameProperty {
             get { return (string)GetValue(NamePropertyProperty); }
             set { SetValue(NamePropertyProperty, value); }
         }
 
         public static readonly DependencyProperty NamePropertyProperty =
-            DependencyProperty.Register("NameProperty", typeof(string), typeof(PropertyControl), new PropertyMetadata(""));
+            DependencyProperty.Register("NameProperty", typeof(string), typeof(PropertyGenderControl), new PropertyMetadata(""));
 
-        public string TextProperty {
-            get { return (string)GetValue(TextPropertyProperty); }
-            set { SetValue(TextPropertyProperty, value); }
+        public GenderEnum ValueProperty {
+            get { return (GenderEnum)GetValue(ValuePropertyProperty); }
+            set { SetValue(ValuePropertyProperty, value); }
         }
 
-        public static readonly DependencyProperty TextPropertyProperty =
-            DependencyProperty.Register("TextProperty", typeof(string), typeof(PropertyControl), new PropertyMetadata(""));
+        public static readonly DependencyProperty ValuePropertyProperty =
+            DependencyProperty.Register("ValueProperty", typeof(GenderEnum), typeof(PropertyGenderControl), new PropertyMetadata(GenderEnum.Undisclosed));
     }
 }

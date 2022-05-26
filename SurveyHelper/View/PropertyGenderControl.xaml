@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="SurveyHelper.View.PropertyGenderControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+             dx:ThemeManager.ThemeName="Office2019Colorful"
+             xmlns:model="clr-namespace:SurveyHelper.Model"
+             xmlns:local="clr-namespace:SurveyHelper.View" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+             mc:Ignorable="d" FontFamily="Century Gothic"
+             d:DesignHeight="70" d:DesignWidth="460" Width="460" Height="70" Name="propertyGenderWindow">
+    <UserControl.Resources>
+        <Style TargetType="dxe:ComboBoxEdit">
+            <Setter Property="Background" Value="White" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="FontSize" Value="10" />
+            <Setter Property="Margin" Value="10, 0, 10, 10" />
+            <Setter Property="Height" Value="20" />
+            <Setter Property="FontSize" Value="10" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="CornerRadius" Value="5" />
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Rectangle Margin="10,10,0,0" 
+                   Fill="#b1c9c9" 
+                   RadiusX="10" RadiusY="10"/>
+        <Border Margin="4" 
+                BorderBrush="White" 
+                Background="#d3f2f2" 
+                BorderThickness="1,1,1,1" 
+                CornerRadius="10">
+            <StackPanel>
+                <TextBlock Margin="10,10,10,5" 
+                           Text="{Binding NameProperty, ElementName=propertyGenderWindow}" 
+                           FontSize="14" 
+                           FontWeight="Bold"/>
+                <dxe:ComboBoxEdit EditValue="{Binding ValueProperty, ElementName=propertyGenderWindow}">
+                    <dxmvvm:Interaction.Behaviors>
+                        <dxmvvm:EnumItemsSourceBehavior EnumType="{x:Type model:GenderEnum}" SortMode="DisplayName" ImageSize="20,20"/>
+                    </dxmvvm:Interaction.Behaviors>
+                </dxe:ComboBoxEdit>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>
