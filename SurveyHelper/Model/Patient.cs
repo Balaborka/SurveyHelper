@@ -12,8 +12,8 @@ namespace SurveyHelper.Model {
     public class Patient : INotifyPropertyChanged {
         int id;
         public int ID { 
-            get => id; 
-            set { 
+            get => id;
+            set {
                 id = value; 
                 NotifyPropertyChanged(); 
             } 

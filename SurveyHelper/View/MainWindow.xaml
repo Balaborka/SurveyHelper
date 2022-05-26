@@ -5,12 +5,65 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SurveyHelper" 
         xmlns:customControl="clr-namespace:SurveyHelper.View"
-        mc:Ignorable="d" FontFamily="Century Gothic"
+        mc:Ignorable="d" FontFamily="Century Gothic" FontSize="18"
         Title="MainWindow" Height="700" Width="500" Background="#e6f7f7">
     <Grid>
-        <StackPanel Margin="0,20,0,0">
-            <customControl:PropertyControl NameProperty="ID" TextProperty="{Binding Patient.ID}"  />
-            <customControl:PropertyControl NameProperty="Name" TextProperty="{Binding Patient.Name}"  />
+        <StackPanel>
+            <StackPanel Margin="0,20,0,0">
+                <customControl:PropertyControl NameProperty="ID" TextProperty="{Binding Patient.ID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                <customControl:PropertyControl NameProperty="Name" TextProperty="{Binding Patient.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                <customControl:PropertyControl NameProperty="Surname" TextProperty="{Binding Patient.Surname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                <customControl:PropertyControl NameProperty="Phone" TextProperty="{Binding Patient.Phone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                <customControl:PropertyControl NameProperty="Address" TextProperty="{Binding Patient.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                <customControl:PropertyControl NameProperty="Mail" TextProperty="{Binding Patient.Mail, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                <customControl:PropertyControl NameProperty="Birthday" TextProperty="{Binding Patient.Birthday, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                <customControl:PropertyControl NameProperty="Gender" TextProperty="{Binding Patient.Gender, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+            </StackPanel>
+
+            <Button x:Name="nextButton" 
+                    Content="Next"
+                    Margin="25"
+                    BorderBrush="Transparent"
+                    Width="150"
+                    Height="35"
+                    Foreground="White">
+                <Button.Effect>
+                    <DropShadowEffect ShadowDepth="3" Direction="-45" Color="Black" Opacity="0.43" BlurRadius="12.0" />
+                </Button.Effect>
+                <!--Click="StartButton_Click"
+                    Command="{Binding StartCommand}"
+                    Visibility="{Binding OnPause, ConverterParameter=startButton, Converter={StaticResource stateToVisibilityConverter}, UpdateSourceTrigger=PropertyChanged}">-->
+
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}" >
+                        <Border x:Name="border"
+                                CornerRadius="15"
+                                BorderBrush="Transparent"
+                                BorderThickness="0">
+                            <Border.Background>
+                                <LinearGradientBrush SpreadMethod="Pad" StartPoint="0,1" EndPoint="0.5,0">
+                                    <GradientStop Color="#03a9fc" Offset="0" />
+                                    <GradientStop Color="#19e0fa" Offset="1.5" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <ContentPresenter  />
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Button.IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#16c2d9" />
+                                <Setter TargetName="border" Property="Cursor" Value="Hand" />
+                            </Trigger>
+                            <Trigger Property="Button.IsPressed" Value="True">
+                                <Setter Property="Width" Value="147" />
+                                <Setter Property="Height" Value="34" />
+                                <Setter TargetName="border" Property="Background" Value="#16c2d9" />
+                                <Setter TargetName="border" Property="Cursor" Value="Hand" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
         </StackPanel>
     </Grid>
 </Window>
