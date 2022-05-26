@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SurveyHelper.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,8 +19,12 @@ namespace SurveyHelper {
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window {
+
+        QuestionViewModel vm;
         public MainWindow() {
             InitializeComponent();
+            vm = new QuestionViewModel();
+            this.DataContext = vm;
         }
     }
 }
