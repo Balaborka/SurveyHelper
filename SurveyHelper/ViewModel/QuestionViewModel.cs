@@ -16,7 +16,7 @@ namespace SurveyHelper.ViewModel {
         public ICommand NextCommand { protected set; get; }
         public QuestionViewModel() {
             Patient = new Patient("0");
-            NextCommand = new DelegateCommand(Next, IsRequiredFieldsSubmitted());
+            NextCommand = new DelegateCommand(Next, IsRequiredFieldsSubmitted);
         }
 
         public void Next() {
@@ -27,7 +27,7 @@ namespace SurveyHelper.ViewModel {
                 !String.IsNullOrEmpty(Patient.Name) &&
                 !String.IsNullOrEmpty(Patient.Surname) &&
                 !String.IsNullOrEmpty(Patient.Phone) &&
-                !String.IsNullOrEmpty(Patient.Addres) &&
+                !String.IsNullOrEmpty(Patient.Address) &&
                 !String.IsNullOrEmpty(Patient.Mail))
                 return true;
             return false;

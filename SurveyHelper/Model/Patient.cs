@@ -42,11 +42,11 @@ namespace SurveyHelper.Model {
                 NotifyPropertyChanged();
             }
         }
-        string addres;
-        public string Addres {
-            get => addres;
+        string address;
+        public string Address {
+            get => address;
             set {
-                addres = value;
+                address = value;
                 NotifyPropertyChanged();
             }
         }
@@ -66,8 +66,8 @@ namespace SurveyHelper.Model {
                 NotifyPropertyChanged();
             }
         }
-        DateTime gender;
-        public DateTime Gender {
+        GenderEnum gender;
+        public GenderEnum Gender {
             get => gender;
             set {
                 gender = value;
