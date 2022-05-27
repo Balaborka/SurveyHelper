@@ -32,7 +32,7 @@ namespace SurveyHelper.ViewModel {
             string jsonString = JsonSerializer.Serialize(Patient);
             File.WriteAllText(fileName, jsonString);
             
-            MessageBox.Show("Thank you for your answers. You can find the results of the survey in the Person1.json file next to the application");
+            MessageBox.Show("Thank you for your answers. You can find the results of the survey in the Patient1.json file next to the application");
         }
         bool IsRequiredFieldsSubmitted() {
             if (!String.IsNullOrEmpty(Patient.ID) &&
