@@ -1,4 +1,4 @@
-﻿<Window x:Class="SurveyHelper.MainWindow"
+﻿<Window xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"  x:Class="SurveyHelper.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,70 +6,113 @@
         xmlns:local="clr-namespace:SurveyHelper" 
         xmlns:customControl="clr-namespace:SurveyHelper.View"
         mc:Ignorable="d" FontFamily="Century Gothic" FontSize="18"
-        Title="MainWindow" Height="700" Width="500" Background="#e6f7f7">
+        Title="MainWindow" Height="750" Width="530" Background="#e6f7f7">
 
     <Grid>
-        <StackPanel>
-            <StackPanel Margin="0,20,0,0">
-                <customControl:PropertyControl NameProperty="ID" ValueProperty="{Binding Patient.ID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
-                <customControl:PropertyControl NameProperty="Name" ValueProperty="{Binding Patient.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
-                <customControl:PropertyControl NameProperty="Surname" ValueProperty="{Binding Patient.Surname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
-                <customControl:PropertyControl NameProperty="Phone" ValueProperty="{Binding Patient.Phone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
-                <customControl:PropertyControl NameProperty="Address" ValueProperty="{Binding Patient.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
-                <customControl:PropertyControl NameProperty="Mail" ValueProperty="{Binding Patient.Mail, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
-                <customControl:PropertyDateControl NameProperty="Birthday" ValueProperty="{Binding Patient.Birthday, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
-                <customControl:PropertyGenderControl NameProperty="Gender" ValueProperty="{Binding Patient.Gender, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
-            </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Margin="25">
+                <StackPanel>
+                    <customControl:PropertyControl NameProperty="ID" ValueProperty="{Binding Path=Patient.ID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                    <customControl:PropertyControl NameProperty="Name" ValueProperty="{Binding Path=Patient.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                    <customControl:PropertyControl NameProperty="Surname" ValueProperty="{Binding Path=Patient.Surname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                    <customControl:PropertyControl NameProperty="Phone" ValueProperty="{Binding Path=Patient.Phone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                    <customControl:PropertyControl NameProperty="Address" ValueProperty="{Binding Path=Patient.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                    <customControl:PropertyControl NameProperty="Mail" ValueProperty="{Binding Path=Patient.Mail, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                    <customControl:PropertyDateControl NameProperty="Birthday" ValueProperty="{Binding Path=Patient.Birthday, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                    <customControl:PropertyGenderControl NameProperty="Gender" ValueProperty="{Binding Path=Patient.Gender, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                </StackPanel>
 
-            <Button x:Name="nextButton" 
+                <Button x:Name="nextButton" 
                     Content="  Next"
                     Margin="25"
                     BorderBrush="Transparent"
                     Width="150"
                     Height="35"
                     Foreground="White"
-                    Command="{Binding NextCommand}">
-                <Button.Effect>
-                    <DropShadowEffect ShadowDepth="3" Direction="-45" Color="Black" Opacity="0.43" BlurRadius="12.0" />
-                </Button.Effect>
+                    Command="{Binding Path=NextCommand}"
+                    Click="nextButton_Click">
+                    <Button.Effect>
+                        <DropShadowEffect ShadowDepth="3" Direction="-45" Color="Black" Opacity="0.43" BlurRadius="12.0" />
+                    </Button.Effect>
 
-                <Button.Template>
-                    <ControlTemplate TargetType="{x:Type Button}" >
-                        <Border x:Name="border"
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}" >
+                            <Border x:Name="border"
                                 CornerRadius="15"
                                 BorderBrush="Transparent"
                                 BorderThickness="0">
-                            <Border.Background>
-                                <LinearGradientBrush SpreadMethod="Pad" StartPoint="0,1" EndPoint="0.5,0">
-                                    <GradientStop Color="#03a9fc" Offset="0" />
-                                    <GradientStop Color="#19e0fa" Offset="1.5" />
-                                </LinearGradientBrush>
-                            </Border.Background>
-                            <ContentPresenter  />
-                        </Border>
+                                <Border.Background>
+                                    <LinearGradientBrush SpreadMethod="Pad" StartPoint="0,1" EndPoint="0.5,0">
+                                        <GradientStop Color="#03a9fc" Offset="0" />
+                                        <GradientStop Color="#19e0fa" Offset="1.5" />
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                                <ContentPresenter  />
+                            </Border>
 
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="Button.IsMouseOver" Value="True">
-                                <Setter TargetName="border" Property="Background" Value="#16c2d9" />
-                                <Setter TargetName="border" Property="Cursor" Value="Hand" />
-                            </Trigger>
-                            <Trigger Property="IsEnabled" Value="False">
-                                <Setter TargetName="border" Property="Background" Value="#748d99"/>
-                            </Trigger>
-                            <Trigger Property="IsEnabled" Value="True">
-                                <Setter TargetName="border" Property="Background">
-                                    <Setter.Value>
-                                            <LinearGradientBrush SpreadMethod="Pad" StartPoint="0,1" EndPoint="0.5,0">
-                                                <GradientStop Color="#03a9fc" Offset="0" />
-                                                <GradientStop Color="#19e0fa" Offset="1.5" />
-                                            </LinearGradientBrush>
-                                    </Setter.Value>
-                                </Setter>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="Button.IsMouseOver" Value="True">
+                                    <Setter TargetName="border" Property="Background" Value="#16c2d9" />
+                                    <Setter TargetName="border" Property="Cursor" Value="Hand" />
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter TargetName="border" Property="Background" Value="#748d99"/>
+                                </Trigger>
+
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
+            <StackPanel x:Name="diseasesPanel" Visibility="Collapsed" Margin="25">
+                <TextBlock Text="Diseases" FontSize="50" FontWeight="Bold" />
+                    <dxe:ListBoxEdit Margin="0, 20, 0, 0" Background="Transparent" BorderBrush="Transparent" ItemsSource="{Binding Patient.ListOfDiseases}">
+                        <dxe:ListBoxEdit.ItemTemplate>
+                            <DataTemplate>
+                            <customControl:PropertyDiseaseControl NameProperty="{Binding Path=Name, Mode=TwoWay}" HasDiseaseProperty="{Binding Path=HasDisease, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" CommentProperty="{Binding Path=Comment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                            </DataTemplate>
+                        </dxe:ListBoxEdit.ItemTemplate>
+                    </dxe:ListBoxEdit>
+                <Button x:Name="createJSONButton" 
+                    Content="  Create JSON"
+                    Margin="25"
+                    BorderBrush="Transparent"
+                    Width="150"
+                    Height="35"
+                    Foreground="White"
+                    Command="{Binding SubmitCommand}">
+                    <Button.Effect>
+                        <DropShadowEffect ShadowDepth="3" Direction="-45" Color="Black" Opacity="0.43" BlurRadius="12.0" />
+                    </Button.Effect>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}" >
+                            <Border x:Name="border"
+                                CornerRadius="15"
+                                BorderBrush="Transparent"
+                                BorderThickness="0">
+                                <Border.Background>
+                                    <LinearGradientBrush SpreadMethod="Pad" StartPoint="0,1" EndPoint="0.5,0">
+                                        <GradientStop Color="#03a9fc" Offset="0" />
+                                        <GradientStop Color="#19e0fa" Offset="1.5" />
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                                <ContentPresenter  />
+                            </Border>
+
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="Button.IsMouseOver" Value="True">
+                                    <Setter TargetName="border" Property="Background" Value="#16c2d9" />
+                                    <Setter TargetName="border" Property="Cursor" Value="Hand" />
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter TargetName="border" Property="Background" Value="#748d99"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>

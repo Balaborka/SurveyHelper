@@ -31,10 +31,10 @@
                 CornerRadius="10">
             <StackPanel>
                 <TextBlock Margin="10,10,10,5" 
-                           Text="{Binding NameProperty, ElementName=propertyDateWindow}" 
+                           Text="{Binding Path=NameProperty, ElementName=propertyDateWindow}" 
                            FontSize="14" 
                            FontWeight="Bold"/>
-                <dxe:DateEdit Mask="d" MaskUseAsDisplayFormat="True" EditValue="{Binding ValueProperty, Mode=TwoWay, ElementName=propertyDateWindow}" />
+                <dxe:DateEdit Mask="d" MaskUseAsDisplayFormat="True" EditValue="{Binding Path=ValueProperty, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ElementName=propertyDateWindow}" />
             </StackPanel>
         </Border>
     </Grid>

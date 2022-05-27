@@ -26,5 +26,11 @@ namespace SurveyHelper {
             vm = new QuestionViewModel();
             this.DataContext = vm;
         }
+
+        private void nextButton_Click(object sender, RoutedEventArgs e) {
+            this.Width = 1100;
+            diseasesPanel.Visibility = Visibility.Visible;
+            nextButton.Visibility = Visibility.Collapsed;
+        }
     }
 }

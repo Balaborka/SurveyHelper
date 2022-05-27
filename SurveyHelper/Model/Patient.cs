@@ -74,22 +74,14 @@ namespace SurveyHelper.Model {
                 NotifyPropertyChanged();
             }
         }
-        bool isRequiredFieldsSubmitted;
-        public bool IsRequiredFieldsSubmitted {
-            get => isRequiredFieldsSubmitted;
-            set {
-                isRequiredFieldsSubmitted = value;
-                NotifyPropertyChanged();
-            }
-        }
         public ObservableCollection<Disease> ListOfDiseases { get; set; }
 
         public Patient(string id) {
             this.ID = id;
             ListOfDiseases = new ObservableCollection<Disease>();
-            ListOfDiseases.Add(new Disease() { Name = "Break", HasDisease = null });
-            ListOfDiseases.Add(new Disease() { Name = "COVID-19", HasDisease = null });
-            ListOfDiseases.Add(new Disease() { Name = "Monkey Ospa", HasDisease = null });
+            ListOfDiseases.Add(new Disease() { Name = "Break", HasDisease = false, Comment = "" });
+            ListOfDiseases.Add(new Disease() { Name = "COVID-19", HasDisease = false, Comment = "" });
+            ListOfDiseases.Add(new Disease() { Name = "Monkey Ospa", HasDisease = false, Comment = "" });
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

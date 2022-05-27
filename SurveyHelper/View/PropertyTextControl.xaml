@@ -32,10 +32,10 @@
                 CornerRadius="10">
             <StackPanel>
                 <TextBlock Margin="10,10,10,5" 
-                           Text="{Binding NameProperty, ElementName=propertyWindow}" 
+                           Text="{Binding Path=NameProperty, ElementName=propertyWindow}" 
                            FontSize="14" 
                            FontWeight="Bold"/>
-                <dxe:TextEdit EditValue="{Binding ValueProperty, Mode=TwoWay, ElementName=propertyWindow}" />
+                <dxe:TextEdit EditValue="{Binding Path=ValueProperty, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ElementName=propertyWindow}" />
             </StackPanel>
         </Border>
     </Grid>

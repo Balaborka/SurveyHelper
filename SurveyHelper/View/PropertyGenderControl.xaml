@@ -32,10 +32,10 @@
                 CornerRadius="10">
             <StackPanel>
                 <TextBlock Margin="10,10,10,5" 
-                           Text="{Binding NameProperty, ElementName=propertyGenderWindow}" 
+                           Text="{Binding Path=NameProperty, ElementName=propertyGenderWindow}" 
                            FontSize="14" 
                            FontWeight="Bold"/>
-                <dxe:ComboBoxEdit EditValue="{Binding ValueProperty, Mode=TwoWay, ElementName=propertyGenderWindow}">
+                <dxe:ComboBoxEdit EditValue="{Binding Path=ValueProperty, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ElementName=propertyGenderWindow}">
                     <dxmvvm:Interaction.Behaviors>
                         <dxmvvm:EnumItemsSourceBehavior EnumType="{x:Type model:GenderEnum}" SortMode="DisplayName" ImageSize="20,20"/>
                     </dxmvvm:Interaction.Behaviors>
